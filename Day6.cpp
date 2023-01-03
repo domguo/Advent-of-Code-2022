@@ -36,6 +36,9 @@ int main()
     getline(file, line);
 
     //Part 1
+    //Starting from the beginning of the input, this loop pulls 
+    //4 character substrings and sends them to function compare
+    //If all 4 characters are unique, outputs the index of the last character
     for(int i = 0; i < line.size() - 4; i++)
     {
         sub = line.substr(i, 4);
@@ -47,7 +50,8 @@ int main()
         }
     }
 
-    //Part 1
+    //Part 2
+    //Same as part 1 except with 14 characters
     for(int i = 0; i < line.size() - 4; i++)
     {
         sub = line.substr(i, 14);
@@ -60,9 +64,7 @@ int main()
     }
 
     //part 1 1356
-
-
-
+    //part 2 2564
 
     return 0;
 }

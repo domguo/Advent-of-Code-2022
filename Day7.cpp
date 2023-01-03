@@ -72,26 +72,48 @@ int main()
 
     cout << line.substr(2, 2) << endl;
 
+    getline(file, line);
+
     // //Add everything in
-    // while(file.good())
-    // {
-    //     getline(file, line);
+    while(file.good())
+    {
+        getline(file, line);
 
-    //     if(line.at(0) == '$');
-    //     {
-    //         if(line.substr(1, 3) == "cd")
-    //         {
+        cout << line << endl;
 
-    //         }
+        //If command is cd
+        if(line.substr(2, 2) == "cd")
+        {
+            cout << "changing directories" << endl;
+            ptr = ptr->move(line);
 
-    //         else
-    //         {
+        }
 
-    //         }
-    //     }
+        //If command is ls
+        else if(line.substr(2, 2) == "ls")
+        {
+            ;
+        }
 
+        else
+        {
+            // getline(file, line);
 
-    // }
+            // cout << line << endl;
+
+            if(line.substr(0, 3) == "dir")
+            {
+                cout << "Adding a directory" << endl;
+                ptr->addDir(line.substr(3));
+            }
+
+            else
+            {
+                cout << "Adding a file" << endl;
+                ptr->addFile(stoi(line.substr(0, line.find(' '))));
+            }
+        }
+    }
 
     //Calculate sizes
 
